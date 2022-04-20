@@ -5,7 +5,7 @@ stmt: declaration| assignment| initialization| if_stmt| ret_stmt;
 declaration: (INT|STRING) id ';';
 assignment: id ASSIGN (id|'"' (LETTER|DIGIT)* '"'| DIGIT+) ';' ;
 initialization: (INT|STRING) assignment;
-if_stmt: IF '('cond')' ('{' stmt? '}');
+if_stmt: IF '('cond')' ('{' stmt* '}');
 ret_stmt: RETURN(DIGIT)? ';';
 cond: id | TRUE | FALSE | (id|DIGIT+) relop (id|DIGIT+) ;
 relop: GT|LT|LE|GE|AND|OR|EQUAL|NOTEQUAL|BANG;
