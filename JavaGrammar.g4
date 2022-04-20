@@ -1,14 +1,14 @@
 grammar JavaGrammar;
 
-prog: PUBLIC STATIC (INT|VOID) MAIN '('')' '{'stmt*'}';
+prog: PUBLIC STATIC (INT|VOID) MAIN '(' STRING '[' ']' 'args' ')' '{'stmt*'}';
 stmt: declaration| assignment| initialization| if_stmt| ret_stmt;
-declaration: (INT|STRING) id ';';
+declaration: (INT|STRING|BOOLEAN) id ';';
 assignment: id ASSIGN (id|'"' (LETTER|DIGIT)* '"'| DIGIT+) ';' ;
-initialization: (INT|STRING) assignment;
+initialization: (INT|STRING|BOOLEAN) assignment;
 if_stmt: IF '('cond')' ('{' stmt* '}');
 ret_stmt: RETURN(DIGIT)? ';';
 cond: id | TRUE | FALSE | (id|DIGIT+) relop (id|DIGIT+) ;
-relop: GT|LT|LE|GE|AND|OR|EQUAL|NOTEQUAL|BANG;
+relop: GT|LT|LE|GE|AND|OR|EQUAL|NOTEQUAL;
 id: LETTER(LETTER|DIGIT)*;
 
 
