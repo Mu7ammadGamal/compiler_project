@@ -1,2 +1,2 @@
-public class MyVisitor extends JavaGrammarBaseVisitor{
+public class MyVisitor extends JavaParserBaseVisitor<Object> {
 }
