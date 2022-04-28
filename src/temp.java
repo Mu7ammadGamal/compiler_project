@@ -1,18 +1,16 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 public class temp {
     public static void main(String[] args) {
-
-        System.out.println("Enter two numbers");
-        int first = 10;
-        int second = 20;
-        if(first == 10){
-            first = 20;
+        int x = 10;
+        if(x<10){
+        }
+        else if (x>10) {
         }
         else {
-            first = 40;
+
         }
-        // add two numbers
-        int sum = first + second;
-        System.out.println("The sum is: " + sum);
     }
 }
 

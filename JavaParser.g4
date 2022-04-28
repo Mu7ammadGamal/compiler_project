@@ -88,7 +88,7 @@ interfaceDeclaration
     ;
 
 classBody
-    : '{' classBodyDeclaration* '}'
+    : lb = '{' classBodyDeclaration* '}'
     ;
 
 interfaceBody
@@ -410,13 +410,13 @@ recordBody
 // STATEMENTS / BLOCKS
 
 block
-    : '{' blockStatement* '}'
+    : lb='{' blockStatement* '}'
     ;
 
 blockStatement
-    : localVariableDeclaration ';'
-    | statement
-    | localTypeDeclaration
+    : localVariableDeclaration ';'      #blockStatement_localVariableDeclaration
+    | statement                         #blockStatement_statement
+    | localTypeDeclaration              #blockStatement_localTypeDeclaration
     ;
 
 localVariableDeclaration
@@ -449,25 +449,25 @@ localTypeDeclaration
     ;
 
 statement
-    : blockLabel=block
-    | ASSERT expression (':' expression)? ';'
-    | IF parExpression statement (ELSE statement)?
-    | FOR '(' forControl ')' statement
-    | WHILE parExpression statement
-    | DO statement WHILE parExpression ';'
-    | TRY block (catchClause+ finallyBlock? | finallyBlock)
-    | TRY resourceSpecification block catchClause* finallyBlock?
-    | SWITCH parExpression '{' switchBlockStatementGroup* switchLabel* '}'
-    | SYNCHRONIZED parExpression block
-    | RETURN expression? ';'
-    | THROW expression ';'
-    | BREAK identifier? ';'
-    | CONTINUE identifier? ';'
-    | YIELD expression ';' // Java17
-    | SEMI
-    | statementExpression=expression ';'
-    | switchExpression ';'? // Java17
-    | identifierLabel=identifier ':' statement
+    : blockLabel=block #st1
+    | ASSERT expression (':' expression)? ';' #st2
+    | IF parExpression statement (ELSE statement)? #st3
+    | FOR '(' forControl ')' statement #st4
+    | WHILE parExpression statement #st5
+    | DO statement WHILE parExpression ';' #st6
+    | TRY block (catchClause+ finallyBlock? | finallyBlock) #st7
+    | TRY resourceSpecification block catchClause* finallyBlock? #st8
+    | SWITCH parExpression '{' switchBlockStatementGroup* switchLabel* '}' #st9
+    | SYNCHRONIZED parExpression block #st10
+    | RETURN expression? ';' #st11
+    | THROW expression ';' #st12
+    | BREAK identifier? ';' #st13
+    | CONTINUE identifier? ';' #st14
+    | YIELD expression ';' #st15 // Java17
+    | SEMI #st16
+    | statementExpression=expression ';' #st17
+    | switchExpression ';'? #st18 // Java17
+    | identifierLabel=identifier ':' statement #st19
     ;
 
 catchClause

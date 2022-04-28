@@ -478,11 +478,26 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBlock(JavaParser.BlockContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#blockStatement}.
+	 * Visit a parse tree produced by the {@code blockStatement_localVariableDeclaration}
+	 * labeled alternative in {@link JavaParser#blockStatement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBlockStatement(JavaParser.BlockStatementContext ctx);
+	T visitBlockStatement_localVariableDeclaration(JavaParser.BlockStatement_localVariableDeclarationContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code blockStatement_statement}
+	 * labeled alternative in {@link JavaParser#blockStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockStatement_statement(JavaParser.BlockStatement_statementContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code blockStatement_localTypeDeclaration}
+	 * labeled alternative in {@link JavaParser#blockStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBlockStatement_localTypeDeclaration(JavaParser.BlockStatement_localTypeDeclarationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link JavaParser#localVariableDeclaration}.
 	 * @param ctx the parse tree
@@ -502,11 +517,138 @@ public interface JavaParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLocalTypeDeclaration(JavaParser.LocalTypeDeclarationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link JavaParser#statement}.
+	 * Visit a parse tree produced by the {@code st1}
+	 * labeled alternative in {@link JavaParser#statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitStatement(JavaParser.StatementContext ctx);
+	T visitSt1(JavaParser.St1Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st2}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt2(JavaParser.St2Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st3}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt3(JavaParser.St3Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st4}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt4(JavaParser.St4Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st5}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt5(JavaParser.St5Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st6}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt6(JavaParser.St6Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st7}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt7(JavaParser.St7Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st8}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt8(JavaParser.St8Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st9}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt9(JavaParser.St9Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st10}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt10(JavaParser.St10Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st11}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt11(JavaParser.St11Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st12}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt12(JavaParser.St12Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st13}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt13(JavaParser.St13Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st14}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt14(JavaParser.St14Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st15}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt15(JavaParser.St15Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st16}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt16(JavaParser.St16Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st17}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt17(JavaParser.St17Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st18}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt18(JavaParser.St18Context ctx);
+	/**
+	 * Visit a parse tree produced by the {@code st19}
+	 * labeled alternative in {@link JavaParser#statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSt19(JavaParser.St19Context ctx);
 	/**
 	 * Visit a parse tree produced by {@link JavaParser#catchClause}.
 	 * @param ctx the parse tree
