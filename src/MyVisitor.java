@@ -12,20 +12,28 @@ public class MyVisitor extends JavaParserBaseVisitor<String> {
     int counter = 1;
     TokenStream tokens;
     File file = null;
-    File outFile;
+
     public MyVisitor(TokenStream tokens, String fName) {
         rewriter = new TokenStreamRewriter(tokens);
         this.tokens = tokens;
         this.fName = fName;
-        String [] pathStrings = fName.split("\\\\");
-        file = new File("D:\\University\\4th Year\\Term 2\\Compilers\\Sec\\compiler_project\\src\\IR\\" +pathStrings[pathStrings.length-1] );
+        String[] pathStrings = fName.split("\\\\");
+        file = new File("C:\\Users\\ashra\\compiler\\compiler_project\\src\\IR\\" + pathStrings[pathStrings.length - 1]);
+    }
 
+    @Override
+    public String visitCompilationUnit(JavaParser.CompilationUnitContext ctx) {
+        // add imports statements in the start of IR file
+        String imports = "import java.io.File;\n" +
+                "import java.io.FileWriter;\n" +
+                "import java.io.IOException;\n";
+        rewriter.insertBefore(ctx.start, imports);
+        return super.visitCompilationUnit(ctx);
     }
 
     @Override
     public String visitBlockStatement_statement(JavaParser.BlockStatement_statementContext ctx) {
         return visit(ctx.statement());
-//        System.out.println(res);
     }
 
     @Override
@@ -33,58 +41,58 @@ public class MyVisitor extends JavaParserBaseVisitor<String> {
         return visit(ctx.block());
     }
 
-    private String createFileCodeString (){
-
-      String code =
-                      " try {" +
-                   " FileWriter writer = new FileWriter(outFile" + String.valueOf(counter)+");"+
-                      "} catch (IOException e) {" +
-                      "e.printStackTrace();" +
-                      "}"+
-              " try {"
-             + "writer.append(\"Visited Block" + String.valueOf(counter++) +
-        "} catch (IOException e) {" +
-            "e.printStackTrace();" +
-        "}";
-        return code;
-    }
-
     @Override
-    public String visitBlock(JavaParser.BlockContext ctx) {
-
-//        String field = "System.out.println(\"Visted Block "+String.valueOf(counter)+"\");\n" +
-//                "        try {\n" +
-//                "            fw.append(\"Visited Block "+String.valueOf(counter++)+"\");\n" +
-//                "        } catch (IOException e) {\n" +
-//                "            e.printStackTrace();\n" +
-//                "        }";
-        String field = "\nSystem.out.println(\"Visted Block "+String.valueOf(counter++)+"\");\n";
-//        String field = createFileCodeString();
-
-        rewriter.insertAfter(ctx.lb, field);
-        FileWriter writer = null;
+    public String visitSt11(JavaParser.St11Context ctx) {
+        // add this code to the IR file in the end of the main function (before return statement),
+        // this code appends the complete output string into the output file
+        rewriter.insertBefore(ctx.start, "\ttry{\n" +
+                "\t\tFileWriter writer=new FileWriter(file);\n" +
+                "\t\twriter.append(output);\n" +
+                "\t\twriter.close();\n" +
+                "\t\t}catch(IOException e){\n" +
+                "\t\te.printStackTrace();\n" +
+                "\t\t}\n");
         try {
-            writer = new FileWriter(file);
+            FileWriter writer = new FileWriter(file);
             writer.append(rewriter.getText());
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return super.visitSt11(ctx);
+    }
+
+    @Override
+    public String visitBlock(JavaParser.BlockContext ctx) {
+  /*      // if the block is "main" block -> add this code in the end of this block:
+        if (counter == 1)
+        {
+
+            rewriter.insertBefore(ctx.stop, "\ttry{\n" +
+                    "\t\tFileWriter writer=new FileWriter(file);\n" +
+                    "\t\twriter.append(output);\n" +
+                    "\t\twriter.close();\n" +
+                    "\t\t}catch(IOException e){\n" +
+                    "\t\te.printStackTrace();\n" +
+                    "\t\t}\n");
+            try {
+                FileWriter writer = new FileWriter(file);
+                writer.append(rewriter.getText());
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }*/
+        String field = "\n\toutput += \"Visited Block" + counter++ + "\\n\";";
+        rewriter.insertAfter(ctx.lb, field);
         return super.visitBlock(ctx);
     }
 
-//    @Override
-//    public String visitClassBody(JavaParser.ClassBodyContext ctx) {
-//        String field = "static FileWriter fw = null;\n" +
-//                "        {\n" +
-//                "            try {\n" +
-//                "                fw = new FileWriter(\"/IRC.text\");\n" +
-//                "            } catch (IOException e) {\n" +
-//                "                e.printStackTrace();\n" +
-//                "            }\n" +
-//                "        }";
-//
-//        rewriter.insertAfter(ctx.lb, field);
-//        return super.visitClassBody(ctx);
-//    }
+    @Override
+    public String visitClassBody(JavaParser.ClassBodyContext ctx) {
+        String filed = "     \n\nstatic File file = new File(\"C:\\\\Users\\\\ashra\\\\compiler\\\\compiler_project\\\\src\\\\output;\\n\");"+
+                "   \n\n static String output = \"\";\n";
+        rewriter.insertAfter(ctx.lb,filed);
+        return super.visitClassBody(ctx);
+    }
 }
