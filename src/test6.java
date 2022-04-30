@@ -10,7 +10,7 @@ class test6{
     isNullEmpty(str1);
 
     // check if str2 is null or empty
-//    isNullEmpty(str2);
+    // isNullEmpty(str2);
 
     // check if str3 is null or empty
     isNullEmpty(str3);
@@ -19,17 +19,14 @@ class test6{
 
   // method check if string is null or empty
   public static String isNullEmpty(String str) {
-
     // check if string is null
     if (str == null) {
       return "NULL";
     }
-
     // check if string is empty
     else if(str.isEmpty()){
       return "EMPTY";
     }
-
     else {
       return "neither NULL nor EMPTY";
     }
