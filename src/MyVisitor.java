@@ -10,15 +10,19 @@ public class MyVisitor extends JavaParserBaseVisitor<String> {
     TokenStreamRewriter rewriter;
     String fName;
     int counter = 1;
+    int counterStack =0;
     TokenStream tokens;
     File file = null;
+    String className;
 
     public MyVisitor(TokenStream tokens, String fName) {
         rewriter = new TokenStreamRewriter(tokens);
         this.tokens = tokens;
         this.fName = fName;
         String[] pathStrings = fName.split("\\\\");
-        file = new File("C:\\Users\\ashra\\compiler\\compiler_project\\src\\IR\\" + pathStrings[pathStrings.length - 1]);
+        pathStrings = pathStrings[pathStrings.length-1].split("\\.");
+        this.className = pathStrings[0];
+        file = new File(fName.substring(0,fName.lastIndexOf("\\"))+"\\IR.java");
     }
 
     @Override
@@ -38,6 +42,7 @@ public class MyVisitor extends JavaParserBaseVisitor<String> {
 
     @Override
     public String visitSt1(JavaParser.St1Context ctx) {
+
         return visit(ctx.block());
     }
 
@@ -83,16 +88,38 @@ public class MyVisitor extends JavaParserBaseVisitor<String> {
                 e.printStackTrace();
             }
         }*/
-        String field = "\n\toutput += \"Visited Block" + counter++ + "\\n\";";
+        String field = "\nSystem.out.println(\"Visted Block "+String.valueOf(counter++)+"\");\n";
+
+//        String field = "\n\toutput += \"Visited Block" + counter++ + "\\n\";";
         rewriter.insertAfter(ctx.lb, field);
+
+        counterStack++;
+        if(counterStack == 0){
+            rewriter.insertBefore(ctx.rb, field);
+        }
+        counterStack--;
         return super.visitBlock(ctx);
     }
 
     @Override
     public String visitClassBody(JavaParser.ClassBodyContext ctx) {
-        String filed = "     \n\nstatic File file = new File(\"C:\\\\Users\\\\ashra\\\\compiler\\\\compiler_project\\\\src\\\\output;\\n\");"+
+        String filed = "     \n\nstatic File file = new File(\""+fName.substring(0,fName.lastIndexOf("\\")) +"\\out.txt\"" +");"+
                 "   \n\n static String output = \"\";\n";
         rewriter.insertAfter(ctx.lb,filed);
         return super.visitClassBody(ctx);
+    }
+
+    @Override
+    public String visitClassDeclaration(JavaParser.ClassDeclarationContext ctx) {
+        visit(ctx.identifier());
+        return super.visitClassDeclaration(ctx);
+    }
+
+    @Override
+    public String visitIdentifier(JavaParser.IdentifierContext ctx) {
+        if(ctx.IDENTIFIER().getText().equals(className)){
+            rewriter.replace(ctx.IDENTIFIER().getSymbol(),"IR");
+        }
+        return super.visitIdentifier(ctx);
     }
 }

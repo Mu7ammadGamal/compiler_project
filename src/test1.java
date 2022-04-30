@@ -2,7 +2,7 @@ public class test1 {
     public static void main(String[] args) {
 
         // year to be checked
-        int year = 1996;
+        int year = 2022;
         boolean leap = false;
 
         // if the year is divided by 4
@@ -13,23 +13,30 @@ public class test1 {
 
                 // if year is divided by 400
                 // then it is a leap year
-                if (year % 400 == 0)
+                if (year % 400 == 0) {
                     leap = true;
-                else
+                }
+                else {
                     leap = false;
+                }
             }
 
             // if the year is not century
-            else
+            else {
                 leap = true;
+            }
         }
 
-        else
+        else {
             leap = false;
+        }
 
-        if (leap)
+        if (leap) {
             System.out.println(year + " is a leap year.");
-        else
+        }
+        else {
             System.out.println(year + " is not a leap year.");
+        }
+        return;
     }
 }

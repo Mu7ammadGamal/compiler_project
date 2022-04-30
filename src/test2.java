@@ -15,5 +15,6 @@ class test2 {
         else {
             System.out.println(str + " is not a Palindrome String.");
         }
+        return;
     }
 }

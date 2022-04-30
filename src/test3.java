@@ -21,6 +21,7 @@ public class test3 {
 
         if (!flag)
             System.out.println(number + " cannot be expressed as the sum of two prime numbers.");
+        return;
     }
 
     // Function to check prime number

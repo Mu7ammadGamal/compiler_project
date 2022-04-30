@@ -410,7 +410,7 @@ recordBody
 // STATEMENTS / BLOCKS
 
 block
-    : lb='{' blockStatement* '}'
+    : lb='{' blockStatement* rb='}'
     ;
 
 blockStatement
