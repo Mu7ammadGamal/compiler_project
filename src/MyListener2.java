@@ -20,7 +20,7 @@ public class MyListener2 extends JavaParserBaseListener {
         rewriter = new TokenStreamRewriter(tokens);
         this.tokens = tokens;
         this.fName = fName;
-        String content = new String(Files.readAllBytes(Paths.get("H:\\emmy\\engineering\\4th year\\2nd term\\compiler\\project\\New folder\\compiler_project\\src\\out.txt")));
+        String content = new String(Files.readAllBytes(Paths.get("H:\\emmy\\engineering\\4th year\\2nd term\\compiler\\project\\compilerGit\\compiler_project\\src\\out.txt")));
         Set<Integer> s = new HashSet<>();
         for (char c: content.toCharArray()) {
             if(c!=',' && c!='[' && c!=']' && c!=' ' )
