@@ -8,3 +8,7 @@ Build a simple Java Grammar using Antlr
 #TEST 2
 
 ![Screenshot (1030)](https://user-images.githubusercontent.com/47754184/166124724-c3a96a93-1d24-4400-809a-fc8371b19a55.png)
+
+#TEST 3
+
+![Screenshot (1029)](https://user-images.githubusercontent.com/47754184/166124585-cda0143a-d1f7-44c5-802d-fa2b582777a4.png)
