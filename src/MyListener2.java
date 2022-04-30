@@ -32,7 +32,6 @@ public class MyListener2 extends JavaParserBaseListener {
         pathStrings = pathStrings[pathStrings.length-1].split("\\.");
         this.className = pathStrings[0];
         file = new File(fName.substring(0,fName.lastIndexOf("\\"))+"\\IR.html");
-
     }
 
     @Override
