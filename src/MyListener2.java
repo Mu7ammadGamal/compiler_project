@@ -7,6 +7,11 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * This class <b>MyListener2</b> is a listener, which is used to generate a modified intermediate html file that is used to
+ * color the visited and unvisited blocks obtained by exec the IR file generated from {@link MyListener1}
+ * by handling a subset of the available methods extended from {@link JavaParserBaseListener}.
+ */
 public class MyListener2 extends JavaParserBaseListener {
     TokenStreamRewriter rewriter;
     String fName;
@@ -16,6 +21,12 @@ public class MyListener2 extends JavaParserBaseListener {
     Set<Integer> visited;
     int counter = 1;
 
+    /**
+     *  <b>MyListener2</b> class constructor.
+     *  \param TokenStream tokens
+     *  \param String fName,
+     *  which is the path of the source java file
+     */
     public MyListener2(TokenStream tokens, String fName) throws IOException {
         rewriter = new TokenStreamRewriter(tokens);
         this.tokens = tokens;
@@ -34,6 +45,12 @@ public class MyListener2 extends JavaParserBaseListener {
         file = new File(fName.substring(0,fName.lastIndexOf("\\"))+"\\IR.html");
     }
 
+    /**
+     * This function is used to add the necessary <b><i>html elements</i></b> at the beginning of the generated
+     * intermediate html file.
+     * It enters a parse tree produced by {@link JavaParser#compilationUnit}.
+     * @param ctx the parse tree
+     */
     @Override
     public void enterCompilationUnit(JavaParser.CompilationUnitContext ctx) {
         String tags = "<!DOCTYPE html>\n" +
@@ -42,6 +59,12 @@ public class MyListener2 extends JavaParserBaseListener {
         rewriter.insertBefore(ctx.start, tags);
     }
 
+    /**
+     * This function is used to add the necessary <b><i>html elements</i></b> at the end of the generated
+     * intermediate html file as it appends the content of the input java file to the generated html file.
+     * It exits a parse tree produced by {@link JavaParser#compilationUnit}.
+     * @param ctx the parse tree
+     */
     @Override
     public void exitCompilationUnit(JavaParser.CompilationUnitContext ctx) {
         String tags = "</pre></div></body>\n" +
@@ -59,6 +82,11 @@ public class MyListener2 extends JavaParserBaseListener {
         super.exitCompilationUnit(ctx);
     }
 
+    /**
+     * This function used to check whether the block to be colored is visited or not and color it red if it wasn't visited
+     * Enter a parse tree produced by {@link JavaParser#block}.
+     * @param ctx the parse tree
+     */
     @Override
     public void enterBlock(JavaParser.BlockContext ctx) {
         if(!visited.contains(counter++)){
