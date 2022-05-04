@@ -1,5 +1,10 @@
 # compiler_project
 Build a dynamic code analyzer for Java Language to generate statement and branches code coverage reports.
+This project writes a Java program based on Antlr that takes a java file as an input and outputs a modified intermediate java file (injected code). 
+It runs the modified intermediate java file (generated from the previous step) to know which blocks of the code are visited (A file has to be generated after the program run that shows which blocks are visited). 
+Finally, it uses the output from previous step to generate an HTML with highlighted red/green lines.
+- Red lines are highlighted for not visited lines
+- Green lines are highlighted for visited lines
 
 # Collaborators:
 [Mohammed Gamal](https://github.com/Mu7ammadGamal) <br />
@@ -10,17 +15,13 @@ Build a dynamic code analyzer for Java Language to generate statement and branch
 # Dependancies:
 This project requires:
 
-[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
-
-[ANTLR Lib](https://www.antlr.org/download.html) : Used as a package in the project
-
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows) <br />
+[ANTLR Lib](https://www.antlr.org/download.html) : Used as a package in the project <br />
 [Java Grammar](https://github.com/antlr/grammars-v4/tree/master/java/java)
-
-[Doxygen](https://www.doxygen.nl/index.html)
 
 
 # Pipeline:
-Create .cmd file contains next commands then run it
+Create .cmd file in src folder contains next commands then run it
 
 ```
 [PROJECT_HANDLER PATH] Gen_IR1 [TEST_CASE PATH]
