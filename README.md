@@ -4,8 +4,8 @@ This project writes a Java program based on Antlr that takes a java file as an i
 It runs the modified intermediate java file (generated from the previous step) to know which blocks of the code are visited (A file has to be generated after the program run that shows which blocks are visited). <br />
 Finally, it uses the output from previous step to generate an HTML with highlighted red/green lines.
 - Red lines are highlighted for not visited lines
-- Green lines are highlighted for visited lines  <br />
-The code is expected to take an input java file path and it does everything else on its own, like generating edited java files, the output visited blocks, and the generated HTML code file with green and red lines.
+- Green lines are highlighted for visited lines
+ <br />The code is expected to take an input java file path and it does everything else on its own, like generating edited java files, the output visited blocks, and the generated HTML code file with green and red lines.
 
 # Collaborators:
 [Mohammed Gamal](https://github.com/Mu7ammadGamal) <br />
