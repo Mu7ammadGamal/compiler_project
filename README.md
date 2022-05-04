@@ -17,16 +17,19 @@ Create .cmd file contains next commands then run it
 to get [PROJECT_HANDLER PATH] check https://stackoverflow.com/questions/27108911/how-to-run-java-program-in-command-prompt-created-by-intellij#:~:text=In%20order%20to%20see%20the,to%20see%20the%20command%20line
 
 # Dependancies:
-These are all what you need to have before downloading this project
+This project requires:
 
 IntelliJ IDEA:
 https://www.jetbrains.com/idea/download/#section=windows
 
-ANTLR Lib 
+ANTLR Lib:
 https://www.antlr.org/download.html
 
-Java Grammar 
+Java Grammar: 
 https://github.com/antlr/grammars-v4/tree/master/java/java
+
+Doxygen:
+https://www.doxygen.nl/index.html
 
 # Test Cases:
 
@@ -42,7 +45,7 @@ https://github.com/antlr/grammars-v4/tree/master/java/java
 
 ![WhatsApp Image 2022-05-04 at 5 28 54 PM](https://user-images.githubusercontent.com/47754184/166717642-a2a62a2b-36d8-4058-9b1f-f7b1fab76986.jpeg)
 
-##TEST 4
+## TEST 4
 
 ![WhatsApp Image 2022-05-04 at 5 29 15 PM](https://user-images.githubusercontent.com/47754184/166717470-97ec49a5-75b8-4346-ae3d-176f8479c992.jpeg)
 
