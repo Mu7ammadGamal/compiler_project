@@ -2,10 +2,27 @@
 Build a dynamic code analyzer for Java Language to generate statement and branches code coverage reports.
 
 # Collaborators:
-1-Mohammed Gamal
-2-Mina Ashraf
-3-Eman Mohammed 
-4-Manar Essam
+1- https://github.com/Mu7ammadGamal
+2-https://github.com/EmanMohammedAbdElmoneim
+3-https://github.com/MinaAashraf
+4-https://github.com/manaressam9
+
+# Dependancies:
+This project requires:
+
+IntelliJ IDEA:
+https://www.jetbrains.com/idea/download/#section=windows
+
+ANTLR Lib:
+Used as a package in the project
+https://www.antlr.org/download.html
+
+Java Grammar: 
+https://github.com/antlr/grammars-v4/tree/master/java/java
+
+Doxygen:
+https://www.doxygen.nl/index.html
+
 
 # Pipeline:
 Create .cmd file contains next commands then run it
@@ -16,20 +33,6 @@ Create .cmd file contains next commands then run it
 
 to get [PROJECT_HANDLER PATH] check https://stackoverflow.com/questions/27108911/how-to-run-java-program-in-command-prompt-created-by-intellij#:~:text=In%20order%20to%20see%20the,to%20see%20the%20command%20line
 
-# Dependancies:
-This project requires:
-
-IntelliJ IDEA:
-https://www.jetbrains.com/idea/download/#section=windows
-
-ANTLR Lib:
-https://www.antlr.org/download.html
-
-Java Grammar: 
-https://github.com/antlr/grammars-v4/tree/master/java/java
-
-Doxygen:
-https://www.doxygen.nl/index.html
 
 # Test Cases:
 
