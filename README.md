@@ -5,7 +5,8 @@ It runs the modified intermediate java file (generated from the previous step) t
 Finally, it uses the output from previous step to generate an HTML with highlighted red/green lines.
 - Red lines are highlighted for not visited lines
 - Green lines are highlighted for visited lines
- <br />The code is expected to take an input java file path and it does everything else on its own, like generating edited java files, the output visited blocks, and the generated HTML code file with green and red lines.
+
+The code is expected to take an input java file path and it does everything else on its own, like generating edited java files, the output visited blocks, and the generated HTML code file with green and red lines.
 
 # Collaborators:
 [Mohammed Gamal](https://github.com/Mu7ammadGamal) <br />
