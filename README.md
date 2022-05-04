@@ -1,7 +1,7 @@
 # compiler_project
-Build a dynamic code analyzer for Java Language to generate statement and branches code coverage reports.
-This project writes a Java program based on Antlr that takes a java file as an input and outputs a modified intermediate java file (injected code). 
-It runs the modified intermediate java file (generated from the previous step) to know which blocks of the code are visited (A file has to be generated after the program run that shows which blocks are visited). 
+Build a dynamic code analyzer for Java Language to generate statement and branches code coverage reports. <br />
+This project writes a Java program based on Antlr that takes a java file as an input and outputs a modified intermediate java file (injected code). <br />
+It runs the modified intermediate java file (generated from the previous step) to know which blocks of the code are visited (A file has to be generated after the program run that shows which blocks are visited). <br />
 Finally, it uses the output from previous step to generate an HTML with highlighted red/green lines.
 - Red lines are highlighted for not visited lines
 - Green lines are highlighted for visited lines
