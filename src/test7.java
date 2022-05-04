@@ -1,5 +1,3 @@
-// Java Program to implement String on switch statements in Java
-
 class test7{
   public static void main(String[] args) {
 
