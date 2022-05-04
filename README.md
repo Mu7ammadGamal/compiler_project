@@ -2,26 +2,23 @@
 Build a dynamic code analyzer for Java Language to generate statement and branches code coverage reports.
 
 # Collaborators:
-1-[Mohammed Gamal](https://github.com/Mu7ammadGamal)
-2-[Eman Mohammed](https://github.com/EmanMohammedAbdElmoneim)
-3-[Mina Ashraf](https://github.com/MinaAashraf)
-4-[Manar Essam](https://github.com/manaressam9)
+*[Mohammed Gamal](https://github.com/Mu7ammadGamal)
+*[Eman Mohammed](https://github.com/EmanMohammedAbdElmoneim)
+*[Mina Ashraf](https://github.com/MinaAashraf)
+*[Manar Essam](https://github.com/manaressam9)
 
 # Dependancies:
 This project requires:
 
-IntelliJ IDEA:
-https://www.jetbrains.com/idea/download/#section=windows
+[IntelliJ IDEA](https://www.jetbrains.com/idea/download/#section=windows)
 
-ANTLR Lib:
+[ANTLR Lib](https://www.antlr.org/download.html)
+
 Used as a package in the project
-https://www.antlr.org/download.html
 
-Java Grammar: 
-https://github.com/antlr/grammars-v4/tree/master/java/java
+[Java Grammar](https://github.com/antlr/grammars-v4/tree/master/java/java)
 
-Doxygen:
-https://www.doxygen.nl/index.html
+[Doxygen](https://www.doxygen.nl/index.html)
 
 
 # Pipeline:
