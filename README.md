@@ -32,7 +32,7 @@ Create .cmd file in src folder contains next commands then run it
 [PROJECT_HANDLER PATH] IR.java
 ```
 ```
-[PROJECT_HANDLER PATH] Gen_IR1 [TEST_CASE PATH] 
+[PROJECT_HANDLER PATH] Gen_IR2 [TEST_CASE PATH] 
 ```
 
 To get [PROJECT_HANDLER PATH] check [this](https://stackoverflow.com/questions/27108911/how-to-run-java-program-in-command-prompt-created-by-intellij#:~:text=In%20order%20to%20see%20the,to%20see%20the%20command%20line)
